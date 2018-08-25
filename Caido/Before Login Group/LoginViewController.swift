@@ -11,6 +11,8 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let gradient = CAGradientLayer()
+    let emailHighlighterGradient = CAGradientLayer()
+    let passwordHighlighterGradient = CAGradientLayer()
     
     let backgroundView : UIView =
     {
@@ -109,13 +111,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         button.layer.cornerRadius = 10
         
-        let leftColor = UIColor(red: 70, green: 149, blue: 247)
-        let rightColor = UIColor(red: 39, green: 90, blue: 245)
-        self.gradient.colors = [leftColor.cgColor, rightColor.cgColor]
+        let rightColor = UIColor(red: 70, green: 149, blue: 247)
+        let leftColor = UIColor(red: 39, green: 90, blue: 245)
+        self.gradient.colors = [rightColor.cgColor, leftColor.cgColor]
         gradient.frame = button.frame
-        gradient.locations = [0,0.5,1]
+        gradient.locations = [0,1]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.cornerRadius = button.layer.cornerRadius
         button.layer.addSublayer(gradient)
+        
+        // Create shadow
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: -3, height: 5)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -130,6 +140,54 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    let updatesLabel : UILabel =
+    {
+        let label = UILabel()
+        label.text = "Updates"
+        label.textAlignment = .center
+        label.textColor = UIColor(red: 124, green: 124, blue: 137)
+        label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var emailTextFieldHighlighterView : UIView =
+    {
+        let view = UIView()
+        view.backgroundColor = UIColor.black
+        view.layer.cornerRadius = 3
+        view.alpha = 0
+        // Create gradient
+        let firstColor = UIColor(red: 92, green: 1, blue: 255)
+        let secondColor = UIColor(red: 180, green: 248, blue: 209)
+        emailHighlighterGradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        emailHighlighterGradient.locations = [0,1]
+        emailHighlighterGradient.startPoint = CGPoint(x: 0, y: 0)
+        emailHighlighterGradient.endPoint = CGPoint(x: 1, y: 0)
+        emailHighlighterGradient.cornerRadius = view.layer.cornerRadius
+        view.layer.addSublayer(emailHighlighterGradient)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var passwordTextFieldHighlighterView : UIView =
+    {
+        let view = UIView()
+        view.layer.cornerRadius = 3
+        view.alpha = 0
+        // Create gradient
+        let firstColor = UIColor(red: 92, green: 1, blue: 255)
+        let secondColor = UIColor(red: 180, green: 248, blue: 209)
+        passwordHighlighterGradient.colors = [firstColor.cgColor, secondColor.cgColor]
+        passwordHighlighterGradient.locations = [0,1]
+        passwordHighlighterGradient.startPoint = CGPoint(x: 0, y: 0)
+        passwordHighlighterGradient.endPoint = CGPoint(x: 1, y: 0)
+        passwordHighlighterGradient.cornerRadius = view.layer.cornerRadius
+        view.layer.addSublayer(passwordHighlighterGradient)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
 
@@ -149,6 +207,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupLogoImageView()
         setupLoginButton()
         setupForgotPasswordLabel()
+        setupUpdatesLabel()
+        setupEmailTextFieldHighlighterView()
+        setupPasswordTextFieldHighlighterView()
     }
 
     func setupBackgroundView ()
@@ -156,7 +217,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(backgroundView)
         backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45).isActive = true
+        backgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.65).isActive = true
         backgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
     }
     
@@ -177,6 +238,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.widthAnchor.constraint(equalTo: textFieldsBackgroundView.widthAnchor, multiplier: 0.80).isActive = true
         emailTextField.heightAnchor.constraint(equalTo: textFieldsBackgroundView.heightAnchor, multiplier: 0.5).isActive = true
         emailTextField.delegate = self
+        
+        // Create target
+        emailTextField.addTarget(self, action: #selector(showEmailHighlighterView), for: .editingDidBegin)
+        emailTextField.addTarget(self, action: #selector(hideEmailHighligherView), for: .editingDidEnd)
+    }
+    
+    @objc func showEmailHighlighterView ()
+    {
+        UIView.animate(withDuration: 0.35) {
+            self.emailTextFieldHighlighterView.alpha = 1
+        }
+    }
+    
+    @objc func hideEmailHighligherView ()
+    {
+        UIView.animate(withDuration: 0.35) {
+            self.emailTextFieldHighlighterView.alpha = 0
+        }
     }
     
     func setupEmailIconImageView ()
@@ -206,6 +285,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.widthAnchor.constraint(equalTo: textFieldsBackgroundView.widthAnchor, multiplier: 0.80).isActive = true
         passwordTextField.heightAnchor.constraint(equalTo: textFieldsBackgroundView.heightAnchor, multiplier: 0.5).isActive = true
         passwordTextField.delegate = self
+        
+        // Create target
+        passwordTextField.addTarget(self, action: #selector(showPasswordHighlighterView), for: .editingDidBegin)
+        passwordTextField.addTarget(self, action: #selector(hidePasswordHighligherView), for: .editingDidEnd)
+    }
+    
+    @objc func showPasswordHighlighterView ()
+    {
+        UIView.animate(withDuration: 0.35) {
+            self.passwordTextFieldHighlighterView.alpha = 1
+        }
+    }
+    
+    @objc func hidePasswordHighligherView ()
+    {
+        UIView.animate(withDuration: 0.35) {
+            self.passwordTextFieldHighlighterView.alpha = 0
+        }
     }
     
     func setupSeperatorView ()
@@ -237,9 +334,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     {
         backgroundView.addSubview(logoImageView)
         logoImageView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
-        logoImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor).isActive = true
-        logoImageView.bottomAnchor.constraint(equalTo: textFieldsBackgroundView.topAnchor).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 30).isActive = true
         logoImageView.widthAnchor.constraint(equalTo: backgroundView.widthAnchor, multiplier: 0.2).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
     func setupLoginButton ()
@@ -257,7 +354,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         forgotPasswordLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
         forgotPasswordLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
         forgotPasswordLabel.widthAnchor.constraint(equalTo: backgroundView.widthAnchor).isActive = true
-        forgotPasswordLabel.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.20)
+        forgotPasswordLabel.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.05)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentForgotPasswordViewController))
         forgotPasswordLabel.addGestureRecognizer(tapGestureRecognizer)
@@ -266,6 +363,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @objc func presentForgotPasswordViewController ()
     {
         present(ForgotPasswordViewController(), animated: true, completion: nil)
+    }
+    
+    func setupUpdatesLabel ()
+    {
+        backgroundView.addSubview(updatesLabel)
+        
+        updatesLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
+        updatesLabel.topAnchor.constraint(equalTo: forgotPasswordLabel.bottomAnchor, constant: 10).isActive = true
+        updatesLabel.widthAnchor.constraint(equalTo: backgroundView.widthAnchor).isActive = true
+        updatesLabel.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.05)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentUpdatesViewController))
+        updatesLabel.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func presentUpdatesViewController ()
+    {
+        present(UpdatesViewController(), animated: true, completion: nil)
+    }
+    
+    func setupEmailTextFieldHighlighterView ()
+    {
+        emailTextField.addSubview(emailTextFieldHighlighterView)
+        emailTextFieldHighlighterView.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor).isActive = true
+        emailTextFieldHighlighterView.bottomAnchor.constraint(equalTo: emailTextField.bottomAnchor).isActive = true
+        emailTextFieldHighlighterView.widthAnchor.constraint(equalTo: emailTextField.widthAnchor).isActive = true
+        emailTextFieldHighlighterView.heightAnchor.constraint(equalToConstant: 6).isActive = true
+    }
+    
+    func setupPasswordTextFieldHighlighterView ()
+    {
+        passwordTextField.addSubview(passwordTextFieldHighlighterView)
+        passwordTextFieldHighlighterView.centerXAnchor.constraint(equalTo: passwordTextField.centerXAnchor).isActive = true
+        passwordTextFieldHighlighterView.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor).isActive = true
+        passwordTextFieldHighlighterView.widthAnchor.constraint(equalTo: passwordTextField.widthAnchor).isActive = true
+        passwordTextFieldHighlighterView.heightAnchor.constraint(equalToConstant: 6).isActive = true
     }
     
     // Resigns first responder with the return button
@@ -289,7 +422,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Refresh the frame of the gradient
         gradient.frame = loginButton.bounds
-        
+        emailHighlighterGradient.frame = emailTextFieldHighlighterView.bounds
+        passwordHighlighterGradient.frame = passwordTextFieldHighlighterView.bounds
     }
 
 

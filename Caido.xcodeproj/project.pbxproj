@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6512DBF3211528ED00F27497 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6512DBF2211528ED00F27497 /* ToDo.swift */; };
-		6512DBF52115291900F27497 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6512DBF42115291900F27497 /* ForgotPasswordViewController.swift */; };
 		651861782113CF7E00603FC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861772113CF7E00603FC1 /* AppDelegate.swift */; };
-		6518617A2113CF7E00603FC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861792113CF7E00603FC1 /* LoginViewController.swift */; };
 		6518617D2113CF7E00603FC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6518617B2113CF7E00603FC1 /* Main.storyboard */; };
 		6518617F2113CF8000603FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6518617E2113CF8000603FC1 /* Assets.xcassets */; };
 		651861822113CF8000603FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651861802113CF8000603FC1 /* LaunchScreen.storyboard */; };
 		6518618D2113CF8000603FC1 /* CaidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6518618C2113CF8000603FC1 /* CaidoTests.swift */; };
 		651861982113CF8000603FC1 /* CaidoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861972113CF8000603FC1 /* CaidoUITests.swift */; };
 		651861A62113D2D400603FC1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861A52113D2D400603FC1 /* ColorExtension.swift */; };
+		65D025D82131FA1E00305C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025D72131FA1E00305C89 /* LoginViewController.swift */; };
+		65D025DA2131FA3100305C89 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */; };
+		65D025DC2131FA3C00305C89 /* To Do List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025DB2131FA3C00305C89 /* To Do List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6512DBF2211528ED00F27497 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		6512DBF42115291900F27497 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		651861742113CF7E00603FC1 /* Caido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caido.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		651861772113CF7E00603FC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		651861792113CF7E00603FC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6518617C2113CF7E00603FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6518617E2113CF8000603FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		651861812113CF8000603FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +50,9 @@
 		651861972113CF8000603FC1 /* CaidoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaidoUITests.swift; sourceTree = "<group>"; };
 		651861992113CF8000603FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651861A52113D2D400603FC1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		65D025D72131FA1E00305C89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Before Login Group/LoginViewController.swift"; sourceTree = "<group>"; };
+		65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "Before Login Group/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
+		65D025DB2131FA3C00305C89 /* To Do List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "To Do List.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				651861772113CF7E00603FC1 /* AppDelegate.swift */,
-				651861792113CF7E00603FC1 /* LoginViewController.swift */,
-				6512DBF42115291900F27497 /* ForgotPasswordViewController.swift */,
+				65D025D72131FA1E00305C89 /* LoginViewController.swift */,
+				65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */,
 				651861A52113D2D400603FC1 /* ColorExtension.swift */,
-				6512DBF2211528ED00F27497 /* ToDo.swift */,
+				65D025DB2131FA3C00305C89 /* To Do List.swift */,
 				6518617B2113CF7E00603FC1 /* Main.storyboard */,
 				6518617E2113CF8000603FC1 /* Assets.xcassets */,
 				651861802113CF8000603FC1 /* LaunchScreen.storyboard */,
@@ -265,10 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6512DBF3211528ED00F27497 /* ToDo.swift in Sources */,
-				6512DBF52115291900F27497 /* ForgotPasswordViewController.swift in Sources */,
-				6518617A2113CF7E00603FC1 /* LoginViewController.swift in Sources */,
+				65D025DA2131FA3100305C89 /* ForgotPasswordViewController.swift in Sources */,
 				651861A62113D2D400603FC1 /* ColorExtension.swift in Sources */,
+				65D025D82131FA1E00305C89 /* LoginViewController.swift in Sources */,
+				65D025DC2131FA3C00305C89 /* To Do List.swift in Sources */,
 				651861782113CF7E00603FC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
