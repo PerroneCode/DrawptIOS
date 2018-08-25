@@ -19,7 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        
+        let tabBarViewController = UITabBarController()
+        
+        let homeViewController = HomeViewController()
+        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, selectedImage: nil)
+        
+        let rafflesViewController = RafflesViewController()
+        rafflesViewController.tabBarItem = UITabBarItem(title: "Raffles", image: nil, selectedImage: nil)
+        
+        let storeViewController = StoreViewController()
+        storeViewController.tabBarItem = UITabBarItem(title: "Store", image: nil, selectedImage: nil)
+        
+        let aboutViewController = AboutViewController()
+        aboutViewController.tabBarItem = UITabBarItem(title: "About", image: nil, selectedImage: nil)
+        
+        let gameController = GameController()
+        gameController.tabBarItem = UITabBarItem(title: "Game", image: nil, selectedImage: nil)
+        
+        tabBarViewController.viewControllers = [homeViewController, rafflesViewController, storeViewController, aboutViewController, gameController]
+        
+        window?.rootViewController = tabBarViewController
         return true
     }
 
