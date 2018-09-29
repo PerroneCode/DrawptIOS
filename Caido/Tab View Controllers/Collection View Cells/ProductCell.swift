@@ -11,7 +11,7 @@ import UIKit
 
 class ProductCell : UICollectionViewCell
 {
-    var storeViewController : StoreViewController?
+    var storeViewController = StoreViewController()
     
     let productNameLabel : UILabel =
     {
@@ -40,18 +40,17 @@ class ProductCell : UICollectionViewCell
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        if let storeViewController = self.storeViewController
-        {
-            print("here")
-            imageView.isUserInteractionEnabled = true
-            imageView.addGestureRecognizer(UITapGestureRecognizer(target: self.storeViewController, action: #selector(StoreViewController.presentProductViewController)))
-        } else
-        {
-            print(" nil")
-        }
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentProductViewController)))
         
         return imageView
     }()
+    
+    @objc func presentProductViewController ()
+    {
+        storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!)
+    }
+    
     
     override init(frame: CGRect)
     {

@@ -31,8 +31,6 @@ class UpdatesViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -146,8 +144,10 @@ class UpdatesViewController : UIViewController, UICollectionViewDelegate, UIColl
         
         if updates.count != 0
         {
-            cell.subjectLabel.text = updates[indexPath.row].title
-            cell.updateLabel.text = updates[indexPath.row].text
+            cell.updateTitleLabel.text = updates[indexPath.row].title
+            cell.updateInformationLabel.text = updates[indexPath.row].text
+            cell.dateLabel.text = updates[indexPath.row].date
+            
             
             let photo_url = updates[indexPath.row].photoUrl!
             let url = URL(string: photo_url)
@@ -214,18 +214,20 @@ class CollectionViewCell : UICollectionViewCell
     let dateLabel : UILabel =
     {
         let label  = UILabel()
+        label.text = "hello world"
         label.textColor = UIColor(red: 155, green: 155, blue: 155)
+        label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
     
-    let subjectLabel : UILabel =
+    let updateTitleLabel : UILabel =
     {
         let label = UILabel()
         label.font = label.font.withSize(22.5)
         return label
     }()
     
-    let updateLabel : UILabel =
+    let updateInformationLabel : UILabel =
     {
         let label = UILabel()
         label.numberOfLines = 0
@@ -256,8 +258,8 @@ class CollectionViewCell : UICollectionViewCell
         
         setupSideView()
         setupDateLabel()
-        setupSubjectLabel()
-        setupUpdateLabel()
+        setupUpdateTitleLabel()
+        setupUpdateInformationLabel()
         setupSeperatorView()
         setupIconImageView()
     }
@@ -279,22 +281,22 @@ class CollectionViewCell : UICollectionViewCell
         dateLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
     
-    func setupSubjectLabel ()
+    func setupUpdateTitleLabel ()
     {
-        addSubview(subjectLabel)
+        addSubview(updateTitleLabel)
         
-        subjectLabel.anchor(top: dateLabel.bottomAnchor, bottom: nil, left: dateLabel.leftAnchor, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 30)
+        updateTitleLabel.anchor(top: dateLabel.bottomAnchor, bottom: nil, left: dateLabel.leftAnchor, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 20)
         
-        subjectLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        updateTitleLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
     
-    func setupUpdateLabel ()
+    func setupUpdateInformationLabel ()
     {
-        addSubview(updateLabel)
+        addSubview(updateInformationLabel)
         
-        updateLabel.anchor(top: subjectLabel.bottomAnchor, bottom: nil, left: subjectLabel.leftAnchor, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+        updateInformationLabel.anchor(top: updateTitleLabel.bottomAnchor, bottom: nil, left: updateTitleLabel.leftAnchor, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
         
-        updateLabel.widthAndHeightByPercentOfParent(widthPercent: 1, heightPercent: 0.5, parentWidthAnchor: widthAnchor, parentHeightAnchor: heightAnchor)
+        updateInformationLabel.widthAndHeightByPercentOfParent(widthPercent: 1, heightPercent: 0.5, parentWidthAnchor: widthAnchor, parentHeightAnchor: heightAnchor)
     }
     
     func setupSeperatorView ()

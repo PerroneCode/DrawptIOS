@@ -13,6 +13,7 @@ class ForgotPasswordViewController : UIViewController, UITextFieldDelegate
 {
     let sendPasswordButtonGradient = CAGradientLayer()
     let emailHighlighterGradient = CAGradientLayer()
+    var logoHeight : CGFloat = 0.0
     
     let backgroundView : UIView =
     {
@@ -54,16 +55,6 @@ class ForgotPasswordViewController : UIViewController, UITextFieldDelegate
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "close").withRenderingMode(.alwaysOriginal), for: .normal)
         return button
-    }()
-    
-    let promptLabel : UILabel =
-    {
-        let label = UILabel()
-        label.text = "Enter Your Email"
-        label.textColor = UIColor(red: 165, green: 182, blue: 194)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
     }()
     
     let logoImageView : UIImageView =
@@ -129,7 +120,7 @@ class ForgotPasswordViewController : UIViewController, UITextFieldDelegate
         setupTextFieldsBackgroundView()
         setupEmailTextField()
         setupEmailIconImageView()
-        setupLogoImageViewAndPromptLabel()
+        setupLogoImageView()
         setupCloseButton()
         setupSendPasswordButton()
         setupEmailHighligherView()
@@ -200,19 +191,14 @@ class ForgotPasswordViewController : UIViewController, UITextFieldDelegate
         navigationController?.popViewController(animated: true)
     }
     
-    func setupLogoImageViewAndPromptLabel ()
+    func setupLogoImageView ()
     {
-        let stackView = UIStackView(arrangedSubviews: [logoImageView, promptLabel])
+        backgroundView.addSubview(logoImageView)
         
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 25
+        logoImageView.anchor(top: backgroundView.topAnchor, bottom: nil, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 30, paddingBottom: 30, paddingLeft: 50, paddingRight: 50, width: 0, height: logoHeight)
         
-        backgroundView.addSubview(stackView)
-        
-        
-        stackView.anchor(top: backgroundView.topAnchor, bottom: nil, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 30, paddingBottom: 30, paddingLeft: 50, paddingRight: 50, width: 0, height: 0)
-        stackView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.25).isActive = true
+       /* stackView.anchor(top: backgroundView.topAnchor, bottom: nil, left: backgroundView.leftAnchor, right: backgroundView.rightAnchor, paddingTop: 30, paddingBottom: 30, paddingLeft: 50, paddingRight: 50, width: 0, height: 0)
+        stackView.heightAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.25).isActive = true */
     }
     
     

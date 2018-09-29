@@ -12,8 +12,9 @@ struct Update
 {
     var title : String?
     var text : String?
-    var date : NSDate?
+    var date : String?
     var photoUrl : String?
+    
     init (dictionary : [String : Any])
     {
         if let title = dictionary["title"] as? String
@@ -26,7 +27,7 @@ struct Update
             self.text = text
         }
         
-        if let date = dictionary["size"] as? NSDate
+        if let date = dictionary["date"] as? String
         {
             self.date = date
         }

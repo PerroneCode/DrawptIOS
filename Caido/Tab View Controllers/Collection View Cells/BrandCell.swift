@@ -13,7 +13,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     var products = [Product]()
     var brands = [String]()
     var numberOfCells = 0
-    var storeViewController : StoreViewController?
+    var storeViewController = StoreViewController()
     
     let brandLabel : UILabel =
     {
@@ -74,10 +74,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product-cell", for: indexPath) as! ProductCell
         
-        if let storeViewController = self.storeViewController
-        {
-            cell.storeViewController = storeViewController
-        }
+        cell.storeViewController = storeViewController
         
         if let product_name = products[indexPath.row].product_name
         {

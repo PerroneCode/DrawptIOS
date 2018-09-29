@@ -481,7 +481,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @objc func presentForgotPasswordViewController ()
     {
-        navigationController?.pushViewController(ForgotPasswordViewController(), animated: true)
+        let forgotPasswordViewController = ForgotPasswordViewController()
+        
+        forgotPasswordViewController.logoHeight = self.logoImageView.frame.height
+        
+        navigationController?.pushViewController(forgotPasswordViewController, animated: true)
     }
     
     @objc func presentUpdatesViewController ()

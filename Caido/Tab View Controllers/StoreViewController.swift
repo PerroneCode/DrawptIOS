@@ -221,9 +221,15 @@ class StoreViewController : UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
-    @objc func presentProductViewController ()
+    func presentProductViewController (name: String, size: String, photo: UIImage)
     {
-        print("here")
+        let productViewController = ProductViewController()
+        
+        productViewController.name = name
+        productViewController.size = size
+        productViewController.photo = photo
+        
+        navigationController?.pushViewController(productViewController, animated: true)
     }
     
     
