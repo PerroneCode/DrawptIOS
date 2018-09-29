@@ -1,0 +1,6 @@
+framework module Pods_Caido {
+  umbrella header "Pods-Caido-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,16 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		651861782113CF7E00603FC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861772113CF7E00603FC1 /* AppDelegate.swift */; };
+		2993415366A0C6A91322A75F /* Pods_CaidoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B6B53487173ECA6EBFDE6D /* Pods_CaidoUITests.framework */; };
+		5608991289AC562245AF5ABC /* Pods_CaidoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE2ED95C35A85D252CF2EC4 /* Pods_CaidoTests.framework */; };
 		6518617D2113CF7E00603FC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6518617B2113CF7E00603FC1 /* Main.storyboard */; };
 		6518617F2113CF8000603FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6518617E2113CF8000603FC1 /* Assets.xcassets */; };
 		651861822113CF8000603FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651861802113CF8000603FC1 /* LaunchScreen.storyboard */; };
 		6518618D2113CF8000603FC1 /* CaidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6518618C2113CF8000603FC1 /* CaidoTests.swift */; };
 		651861982113CF8000603FC1 /* CaidoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861972113CF8000603FC1 /* CaidoUITests.swift */; };
-		651861A62113D2D400603FC1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651861A52113D2D400603FC1 /* ColorExtension.swift */; };
-		65D025D82131FA1E00305C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025D72131FA1E00305C89 /* LoginViewController.swift */; };
-		65D025DA2131FA3100305C89 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */; };
-		65D025DC2131FA3C00305C89 /* To Do List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D025DB2131FA3C00305C89 /* To Do List.swift */; };
+		6525C3F9215C4F0A00FA301A /* To Do List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525C3F8215C4F0A00FA301A /* To Do List.swift */; };
+		6525C3FB215C4F5B00FA301A /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525C3FA215C4F5B00FA301A /* ProductViewController.swift */; };
+		6526B22D21488499002117A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6526B22C21488499002117A3 /* GoogleService-Info.plist */; };
+		65323026215999B30021C28D /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65323025215999B30021C28D /* Update.swift */; };
+		653A06DB2149E0E900CF241C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A06DA2149E0E900CF241C /* Product.swift */; };
+		656A5E4F214B2AA400B4A06B /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A5E4E214B2AA400B4A06B /* NewsStory.swift */; };
+		659180DA2148862A007246E9 /* ViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180D92148862A007246E9 /* ViewColors.swift */; };
+		659180DE214886A3007246E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180DD214886A3007246E9 /* AppDelegate.swift */; };
+		659180E9214886BB007246E9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180DF214886B8007246E9 /* ProductCell.swift */; };
+		659180EA214886BB007246E9 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E0214886B9007246E9 /* BrandCell.swift */; };
+		659180EB214886BB007246E9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E1214886B9007246E9 /* ForgotPasswordViewController.swift */; };
+		659180EC214886BB007246E9 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E2214886B9007246E9 /* StoreViewController.swift */; };
+		659180ED214886BB007246E9 /* RafflesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E3214886B9007246E9 /* RafflesViewController.swift */; };
+		659180EE214886BB007246E9 /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E4214886BA007246E9 /* UpdatesViewController.swift */; };
+		659180EF214886BB007246E9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E5214886BA007246E9 /* AboutViewController.swift */; };
+		659180F1214886BB007246E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E7214886BA007246E9 /* HomeViewController.swift */; };
+		659180F2214886BB007246E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E8214886BB007246E9 /* LoginViewController.swift */; };
+		6592774221582143008A4FE7 /* ViewAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6592774121582143008A4FE7 /* ViewAnchors.swift */; };
+		65ABF24721489C440002AADB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ABF24621489C440002AADB /* User.swift */; };
+		65ABF249214960B40002AADB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ABF248214960B40002AADB /* GlobalFunctions.swift */; };
+		C0CDFBD398ED69D5ACB7F5F3 /* Pods_Caido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC3024C717FBD26B8FE0010 /* Pods_Caido.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F2EFAAE1D650700752AA665 /* Pods-CaidoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaidoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaidoUITests/Pods-CaidoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EE2ED95C35A85D252CF2EC4 /* Pods_CaidoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaidoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		651861742113CF7E00603FC1 /* Caido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caido.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		651861772113CF7E00603FC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6518617C2113CF7E00603FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6518617E2113CF8000603FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		651861812113CF8000603FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,10 +68,33 @@
 		651861932113CF8000603FC1 /* CaidoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaidoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		651861972113CF8000603FC1 /* CaidoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaidoUITests.swift; sourceTree = "<group>"; };
 		651861992113CF8000603FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		651861A52113D2D400603FC1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		65D025D72131FA1E00305C89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Before Login Group/LoginViewController.swift"; sourceTree = "<group>"; };
-		65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "Before Login Group/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
-		65D025DB2131FA3C00305C89 /* To Do List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "To Do List.swift"; sourceTree = "<group>"; };
+		6525C3F8215C4F0A00FA301A /* To Do List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "To Do List.swift"; path = "Pre-Home Classes/To Do List.swift"; sourceTree = "<group>"; };
+		6525C3FA215C4F5B00FA301A /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		6526B22C21488499002117A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65323025215999B30021C28D /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		653A06DA2149E0E900CF241C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		656A5E4E214B2AA400B4A06B /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
+		659180D92148862A007246E9 /* ViewColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewColors.swift; sourceTree = "<group>"; };
+		659180DD214886A3007246E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		659180DF214886B8007246E9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		659180E0214886B9007246E9 /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
+		659180E1214886B9007246E9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		659180E2214886B9007246E9 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		659180E3214886B9007246E9 /* RafflesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesViewController.swift; sourceTree = "<group>"; };
+		659180E4214886BA007246E9 /* UpdatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
+		659180E5214886BA007246E9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		659180E7214886BA007246E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		659180E8214886BB007246E9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6592774121582143008A4FE7 /* ViewAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnchors.swift; sourceTree = "<group>"; };
+		65ABF24621489C440002AADB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		65ABF248214960B40002AADB /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		66A4373F05934D162999575E /* Pods-Caido.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caido.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Caido/Pods-Caido.debug.xcconfig"; sourceTree = "<group>"; };
+		6B5708F9D97B68191B61A13A /* Pods-Caido.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caido.release.xcconfig"; path = "Pods/Target Support Files/Pods-Caido/Pods-Caido.release.xcconfig"; sourceTree = "<group>"; };
+		7DC3024C717FBD26B8FE0010 /* Pods_Caido.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caido.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F2E47B567BE27C0DB12E2B4 /* Pods-CaidoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaidoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaidoTests/Pods-CaidoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82DBFF3EB76A161B6DBBDBE3 /* Pods-CaidoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaidoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaidoUITests/Pods-CaidoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B0B6B53487173ECA6EBFDE6D /* Pods_CaidoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaidoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4EFA1C0EC641D5FF9EE59E5 /* Pods-CaidoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaidoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaidoTests/Pods-CaidoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CDFBD398ED69D5ACB7F5F3 /* Pods_Caido.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5608991289AC562245AF5ABC /* Pods_CaidoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +118,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2993415366A0C6A91322A75F /* Pods_CaidoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0673299E30093EAD96B3D71D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66A4373F05934D162999575E /* Pods-Caido.debug.xcconfig */,
+				6B5708F9D97B68191B61A13A /* Pods-Caido.release.xcconfig */,
+				7F2E47B567BE27C0DB12E2B4 /* Pods-CaidoTests.debug.xcconfig */,
+				E4EFA1C0EC641D5FF9EE59E5 /* Pods-CaidoTests.release.xcconfig */,
+				2F2EFAAE1D650700752AA665 /* Pods-CaidoUITests.debug.xcconfig */,
+				82DBFF3EB76A161B6DBBDBE3 /* Pods-CaidoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6518616B2113CF7E00603FC1 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +145,8 @@
 				6518618B2113CF8000603FC1 /* CaidoTests */,
 				651861962113CF8000603FC1 /* CaidoUITests */,
 				651861752113CF7E00603FC1 /* Products */,
+				0673299E30093EAD96B3D71D /* Pods */,
+				841D5398BF8C52292BD34BCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,15 +163,16 @@
 		651861762113CF7E00603FC1 /* Caido */ = {
 			isa = PBXGroup;
 			children = (
-				651861772113CF7E00603FC1 /* AppDelegate.swift */,
-				65D025D72131FA1E00305C89 /* LoginViewController.swift */,
-				65D025D92131FA3100305C89 /* ForgotPasswordViewController.swift */,
-				651861A52113D2D400603FC1 /* ColorExtension.swift */,
-				65D025DB2131FA3C00305C89 /* To Do List.swift */,
+				6592774021582131008A4FE7 /* Util */,
+				6592773F21581F7C008A4FE7 /* Pre-Home Classes */,
+				6525C3FC215C636700FA301A /* Tab View Controllers */,
+				6525C3FA215C4F5B00FA301A /* ProductViewController.swift */,
+				6525C3F8215C4F0A00FA301A /* To Do List.swift */,
 				6518617B2113CF7E00603FC1 /* Main.storyboard */,
 				6518617E2113CF8000603FC1 /* Assets.xcassets */,
 				651861802113CF8000603FC1 /* LaunchScreen.storyboard */,
 				651861832113CF8000603FC1 /* Info.plist */,
+				6526B22C21488499002117A3 /* GoogleService-Info.plist */,
 			);
 			path = Caido;
 			sourceTree = "<group>";
@@ -134,6 +195,86 @@
 			path = CaidoUITests;
 			sourceTree = "<group>";
 		};
+		6525C3FC215C636700FA301A /* Tab View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6525C3FF215C63B700FA301A /* Models */,
+				6525C3FD215C639100FA301A /* Collection View Cells */,
+				659180E7214886BA007246E9 /* HomeViewController.swift */,
+				659180E3214886B9007246E9 /* RafflesViewController.swift */,
+				659180E2214886B9007246E9 /* StoreViewController.swift */,
+				659180E5214886BA007246E9 /* AboutViewController.swift */,
+			);
+			path = "Tab View Controllers";
+			sourceTree = "<group>";
+		};
+		6525C3FD215C639100FA301A /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				659180DF214886B8007246E9 /* ProductCell.swift */,
+				659180E0214886B9007246E9 /* BrandCell.swift */,
+			);
+			path = "Collection View Cells";
+			sourceTree = "<group>";
+		};
+		6525C3FF215C63B700FA301A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65ABF24621489C440002AADB /* User.swift */,
+				653A06DA2149E0E900CF241C /* Product.swift */,
+				656A5E4E214B2AA400B4A06B /* NewsStory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		65323024215999A80021C28D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65323025215999B30021C28D /* Update.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6592773F21581F7C008A4FE7 /* Pre-Home Classes */ = {
+			isa = PBXGroup;
+			children = (
+				65323024215999A80021C28D /* Models */,
+				659180DD214886A3007246E9 /* AppDelegate.swift */,
+				659180E8214886BB007246E9 /* LoginViewController.swift */,
+				659180E4214886BA007246E9 /* UpdatesViewController.swift */,
+				659180E1214886B9007246E9 /* ForgotPasswordViewController.swift */,
+			);
+			path = "Pre-Home Classes";
+			sourceTree = "<group>";
+		};
+		6592774021582131008A4FE7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				65ABF248214960B40002AADB /* GlobalFunctions.swift */,
+				659CD79D215FE856007FD1ED /* Extensions */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		659CD79D215FE856007FD1ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6592774121582143008A4FE7 /* ViewAnchors.swift */,
+				659180D92148862A007246E9 /* ViewColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		841D5398BF8C52292BD34BCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DC3024C717FBD26B8FE0010 /* Pods_Caido.framework */,
+				3EE2ED95C35A85D252CF2EC4 /* Pods_CaidoTests.framework */,
+				B0B6B53487173ECA6EBFDE6D /* Pods_CaidoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6518619C2113CF8000603FC1 /* Build configuration list for PBXNativeTarget "Caido" */;
 			buildPhases = (
+				584906BC40970E74507FEBD6 /* [CP] Check Pods Manifest.lock */,
 				651861702113CF7E00603FC1 /* Sources */,
 				651861712113CF7E00603FC1 /* Frameworks */,
 				651861722113CF7E00603FC1 /* Resources */,
+				72DBCDFF1931303C214525A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6518619F2113CF8000603FC1 /* Build configuration list for PBXNativeTarget "CaidoTests" */;
 			buildPhases = (
+				427A6DE7ACBB4226044F6C78 /* [CP] Check Pods Manifest.lock */,
 				651861842113CF8000603FC1 /* Sources */,
 				651861852113CF8000603FC1 /* Frameworks */,
 				651861862113CF8000603FC1 /* Resources */,
@@ -176,6 +320,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 651861A22113CF8000603FC1 /* Build configuration list for PBXNativeTarget "CaidoUITests" */;
 			buildPhases = (
+				53BB9664202E68221DBAD108 /* [CP] Check Pods Manifest.lock */,
 				6518618F2113CF8000603FC1 /* Sources */,
 				651861902113CF8000603FC1 /* Frameworks */,
 				651861912113CF8000603FC1 /* Resources */,
@@ -239,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				651861822113CF8000603FC1 /* LaunchScreen.storyboard in Resources */,
+				6526B22D21488499002117A3 /* GoogleService-Info.plist in Resources */,
 				6518617F2113CF8000603FC1 /* Assets.xcassets in Resources */,
 				6518617D2113CF7E00603FC1 /* Main.storyboard in Resources */,
 			);
@@ -260,16 +406,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		427A6DE7ACBB4226044F6C78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaidoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53BB9664202E68221DBAD108 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaidoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		584906BC40970E74507FEBD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Caido-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72DBCDFF1931303C214525A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Caido/Pods-Caido-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Caido/Pods-Caido-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		651861702113CF7E00603FC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D025DA2131FA3100305C89 /* ForgotPasswordViewController.swift in Sources */,
-				651861A62113D2D400603FC1 /* ColorExtension.swift in Sources */,
-				65D025D82131FA1E00305C89 /* LoginViewController.swift in Sources */,
-				65D025DC2131FA3C00305C89 /* To Do List.swift in Sources */,
-				651861782113CF7E00603FC1 /* AppDelegate.swift in Sources */,
+				65ABF24721489C440002AADB /* User.swift in Sources */,
+				659180F2214886BB007246E9 /* LoginViewController.swift in Sources */,
+				659180E9214886BB007246E9 /* ProductCell.swift in Sources */,
+				65ABF249214960B40002AADB /* GlobalFunctions.swift in Sources */,
+				659180EB214886BB007246E9 /* ForgotPasswordViewController.swift in Sources */,
+				6592774221582143008A4FE7 /* ViewAnchors.swift in Sources */,
+				659180EC214886BB007246E9 /* StoreViewController.swift in Sources */,
+				6525C3F9215C4F0A00FA301A /* To Do List.swift in Sources */,
+				659180EF214886BB007246E9 /* AboutViewController.swift in Sources */,
+				659180EE214886BB007246E9 /* UpdatesViewController.swift in Sources */,
+				659180EA214886BB007246E9 /* BrandCell.swift in Sources */,
+				659180F1214886BB007246E9 /* HomeViewController.swift in Sources */,
+				659180DE214886A3007246E9 /* AppDelegate.swift in Sources */,
+				65323026215999B30021C28D /* Update.swift in Sources */,
+				656A5E4F214B2AA400B4A06B /* NewsStory.swift in Sources */,
+				659180DA2148862A007246E9 /* ViewColors.swift in Sources */,
+				6525C3FB215C4F5B00FA301A /* ProductViewController.swift in Sources */,
+				659180ED214886BB007246E9 /* RafflesViewController.swift in Sources */,
+				653A06DB2149E0E900CF241C /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +679,7 @@
 		};
 		6518619D2113CF8000603FC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66A4373F05934D162999575E /* Pods-Caido.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -460,6 +700,7 @@
 		};
 		6518619E2113CF8000603FC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B5708F9D97B68191B61A13A /* Pods-Caido.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -480,6 +721,7 @@
 		};
 		651861A02113CF8000603FC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F2E47B567BE27C0DB12E2B4 /* Pods-CaidoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -500,6 +742,7 @@
 		};
 		651861A12113CF8000603FC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EFA1C0EC641D5FF9EE59E5 /* Pods-CaidoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +763,7 @@
 		};
 		651861A32113CF8000603FC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F2EFAAE1D650700752AA665 /* Pods-CaidoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +783,7 @@
 		};
 		651861A42113CF8000603FC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82DBFF3EB76A161B6DBBDBE3 /* Pods-CaidoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

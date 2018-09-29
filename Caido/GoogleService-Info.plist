@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>827513884953-hj99sln1lgg4okr8hahrlkjgffovunpd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.827513884953-hj99sln1lgg4okr8hahrlkjgffovunpd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAfLCla4_bnEffUQrVS_ztFp7XzXG49SiI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>827513884953</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.daniel.Caido</string>
+	<key>PROJECT_ID</key>
+	<string>caido-8a73f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>caido-8a73f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:827513884953:ios:b699a0ee48b82c29</string>
+	<key>DATABASE_URL</key>
+	<string>https://caido-8a73f.firebaseio.com</string>
+</dict>
+</plist>
