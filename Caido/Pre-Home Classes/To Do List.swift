@@ -2,4 +2,5 @@
 // UpdatesViewController
 // ForgotPasswordViewController
 
-// 1) Date text does not appear on any textfield where its supposed to
+// HomeViewController
+// 1) Gradients not working with the first cell
