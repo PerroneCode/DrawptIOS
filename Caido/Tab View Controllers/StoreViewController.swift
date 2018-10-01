@@ -14,7 +14,6 @@ class StoreViewController : UIViewController, UICollectionViewDelegate, UICollec
 
     var products = [String:[Product]]()
     var brands = [String]()
-    var numberOfCells = 0
 
     
     lazy var collectionView : UICollectionView =
@@ -96,40 +95,22 @@ class StoreViewController : UIViewController, UICollectionViewDelegate, UICollec
     
     func getProductsFromDatabase()
     {
-        Database.database().reference().child("available_products").child("shoes").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            // Eech iteration is a product dictionary
-            for (key, _) in dictionary
+    Database.database().reference().child("available_products").observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        // First, get the dictionary
+        if let initialDictionary = snapshot.value as? [String : Any]
+        {
+            // Extract all the category keys
+            var keys = Set<String>()
+            for (key, _) in initialDictionary
             {
-                // We must cast it as another dictionary once again
-                guard let anotherDictionary = dictionary[key] as? [String : Any] else { return }
-                
-                if let brand = anotherDictionary["brand"] as? String
-                {
-                    if let productArray = self.products[brand]
-                    {
-                        var array = productArray
-                        array.append(Product(dictionary: anotherDictionary))
-                        self.products[brand] = array
-                    } else // If nil, we create the new array
-                    {
-                        var array = [Product]()
-                        array.append(Product(dictionary: anotherDictionary))
-                        self.products[brand] = array
-                    }
-                }
-                
-                
-                // Make sure there are no repeats in brand cells
-                if (!self.brands.contains(anotherDictionary["brand"] as! String))
-                {
-                    self.brands.append(anotherDictionary["brand"] as! String)
-                }
-                
+                keys.insert(key)
             }
-            self.refreshCollectionView()
+            
+            self.parseToProductCategory(keys: keys, initialDictionary: initialDictionary)
+            
+        }
+        
         }) { (error) in
             
             print("Error:\(error)")
@@ -137,9 +118,56 @@ class StoreViewController : UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    func parseToProductCategory (keys: Set<String>, initialDictionary: [String : Any])
+    {
+        // Make a dictionary out of every key in the keys set
+        for key in keys
+        {
+            if let productCategoryDictionary = initialDictionary[key] as? [String : Any]
+            {
+                parseToProduct(productCategoryDictionary: productCategoryDictionary)
+            }
+        }
+    }
+    
+    func parseToProduct (productCategoryDictionary : [String : Any])
+    {
+        // The key here is the UUID of the product
+        for (key, _) in productCategoryDictionary
+        {
+            // Get the product
+            if let productDictionary = productCategoryDictionary[key] as? [String : Any]
+            {
+                
+                if let brand = productDictionary["brand"] as? String
+                {
+                    if let productArray = self.products[brand]
+                    {
+                        var array = productArray
+                        array.append(Product(dictionary: productDictionary))
+                        self.products[brand] = array
+                    } else // If nil, we create the new array
+                    {
+                        var array = [Product]()
+                        array.append(Product(dictionary: productDictionary))
+                        self.products[brand] = array
+                    }
+                }
+                
+                // Make sure there are no repeats in brand cells
+                if (!self.brands.contains(productDictionary["brand"] as! String))
+                {
+                    self.brands.append(productDictionary["brand"] as! String)
+                }
+            }
+            
+        }
+        collectionView.reloadData()
+        //refreshCollectionView()
+    }
+    
     func refreshCollectionView ()
     {
-        numberOfCells = brands.count
         
         var indexPaths = [IndexPath]()
         
@@ -199,7 +227,7 @@ class StoreViewController : UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return numberOfCells
+        return brands.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell

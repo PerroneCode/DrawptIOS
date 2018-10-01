@@ -68,7 +68,7 @@ class ProductCell : UICollectionViewCell
     func setupShadow()
     {
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.125
+        layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
         layer.shadowOffset = CGSize(width: 10, height: 10)
     }

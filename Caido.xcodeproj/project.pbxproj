@@ -165,6 +165,7 @@
 		651861762113CF7E00603FC1 /* Caido */ = {
 			isa = PBXGroup;
 			children = (
+				65FC863A21618BDC00186AA7 /* Global UI Collection View Cells */,
 				6592774021582131008A4FE7 /* Util */,
 				6592773F21581F7C008A4FE7 /* Pre-Home Classes */,
 				6525C3FC215C636700FA301A /* Tab View Controllers */,
@@ -213,7 +214,6 @@
 		6525C3FD215C639100FA301A /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				659180DF214886B8007246E9 /* ProductCell.swift */,
 				659180E0214886B9007246E9 /* BrandCell.swift */,
 			);
 			path = "Collection View Cells";
@@ -240,18 +240,18 @@
 		65846D2D21603367000E099F /* Product View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				65846D2E2160339D000E099F /* Collection View Cells */,
+				65846D2E2160339D000E099F /* UI Collection View Cells */,
 				6525C3FA215C4F5B00FA301A /* ProductViewController.swift */,
 			);
 			path = "Product View Controller";
 			sourceTree = "<group>";
 		};
-		65846D2E2160339D000E099F /* Collection View Cells */ = {
+		65846D2E2160339D000E099F /* UI Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
 				65846D2B21603352000E099F /* ProductImagesCollectionView.swift */,
 			);
-			path = "Collection View Cells";
+			path = "UI Collection View Cells";
 			sourceTree = "<group>";
 		};
 		6592773F21581F7C008A4FE7 /* Pre-Home Classes */ = {
@@ -282,6 +282,14 @@
 				659180D92148862A007246E9 /* ViewColors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65FC863A21618BDC00186AA7 /* Global UI Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				659180DF214886B8007246E9 /* ProductCell.swift */,
+			);
+			path = "Global UI Collection View Cells";
 			sourceTree = "<group>";
 		};
 		841D5398BF8C52292BD34BCC /* Frameworks */ = {

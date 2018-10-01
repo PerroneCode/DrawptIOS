@@ -139,7 +139,6 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
             if self.newsStorys.count != 0
             {
                 cell.newsStorys = self.newsStorys
-                cell.numberOfCells = self.newsStorys.count
                 cell.collectionView.reloadData()
             }
             
@@ -164,7 +163,7 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: view.frame.width, height: indexPath.row == 2 ? view.frame.height * 1.5 : view.frame.height / 1.65)
+        return CGSize(width: view.frame.width, height: indexPath.row == 2 ? view.frame.height : view.frame.height / 1.65)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle
@@ -358,7 +357,6 @@ class FirstCell : UICollectionViewCell
 
 class SecondCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    var numberOfCells = 0
     var newsStorys = [NewsStory]()
     
     lazy var collectionView : UICollectionView =
@@ -393,7 +391,6 @@ class SecondCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     {
         super.init(frame: CGRect.zero)
         
-        numberOfCells = newsStorys.count
         setupCollectionView()
         setupNewsLabel()
     }
@@ -416,14 +413,12 @@ class SecondCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return numberOfCells
+        return newsStorys.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "news-cell", for: indexPath) as! NewsCell
-        
-        cell.backgroundColor = UIColor.white
         
         if newsStorys.count != 0
         {
@@ -558,7 +553,6 @@ class ThirdCell : UICollectionViewCell
     let ticketImageView : UIImageView =
     {
         let imageView = UIImageView(image: UIImage(named: "ticket.png"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -571,32 +565,28 @@ class ThirdCell : UICollectionViewCell
         label.font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.light)
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let rulesTextView : UITextView =
+    let rulesLabel : UILabel =
     {
-        let textView = UITextView()
-        textView.font = UIFont(name: "Helvetica", size: 20)
-        textView.backgroundColor = UIColor.clear
-        textView.textColor = UIColor.white
-        textView.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.light)
-        textView.text =
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Helvetica", size: 20)
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.light)
+        label.text =
         "1) Raffle winners are announced each Thursday at 12 PM on Thursday ET.\n\n 2) All raffles are open until Wednesday night at 11:59 PM ET.\n\n 3) If you don’t win a raffle, your changes of winning the upcoming raffle will be increased.\n\n 4) Raffles can be stacked up to 3x for a better chance of winning the raffle."
-        
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
+        label.textColor = UIColor.white
+        return label
     }()
     
     let buyTicketButton : UIButton =
     {
         let button = UIButton(type: UIButtonType.system)
-        button.setTitle("Buy Raffle Ticket", for: UIControlState.normal)
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitle("Buy Raffle Ticket", for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.backgroundColor = UIColor(red: 11, green: 154, blue: 211)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -606,9 +596,8 @@ class ThirdCell : UICollectionViewCell
         
         setupTicketImageView()
         setupRafflesRulesLabel()
-        setupRulesTextView()
+        setupRulesLabel()
         setupBuyTicketButton()
-
     }
     
 
@@ -617,9 +606,7 @@ class ThirdCell : UICollectionViewCell
     {
         addSubview(ticketImageView)
         
-        ticketImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        ticketImageView.topAnchor.constraint(equalTo: topAnchor, constant: frame.height/10).isActive = true
-        ticketImageView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        ticketImageView.anchor(top: topAnchor, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
         ticketImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
     }
     
@@ -627,32 +614,31 @@ class ThirdCell : UICollectionViewCell
     {
         addSubview(rafflesRulesLabel)
         
-        rafflesRulesLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        rafflesRulesLabel.topAnchor.constraint(equalTo: ticketImageView.bottomAnchor, constant: 20).isActive = true
-        rafflesRulesLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        rafflesRulesLabel.anchor(top: ticketImageView.bottomAnchor, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 15, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
         rafflesRulesLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
     }
     
-    func setupRulesTextView ()
+    func setupRulesLabel ()
     {
-        addSubview(rulesTextView)
+        addSubview(rulesLabel)
         
-        rulesTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        rulesTextView.topAnchor.constraint(equalTo: rafflesRulesLabel.bottomAnchor, constant: 20).isActive = true
-        rulesTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
-        rulesTextView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        rulesLabel.anchor(top: rafflesRulesLabel.bottomAnchor, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 20, paddingRight: 20, width: 0, height: 0)
+        rulesLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
     }
     
     func setupBuyTicketButton ()
     {
         addSubview(buyTicketButton)
         
+        buyTicketButton.anchor(top: rulesLabel.bottomAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: frame.width * 0.8, height: 50)
         buyTicketButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        buyTicketButton.topAnchor.constraint(equalTo: rulesTextView.bottomAnchor, constant: -20).isActive = true
-        buyTicketButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
-        buyTicketButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        buyTicketButton.addTarget(self, action: #selector(test), for: .touchUpInside)
     }
     
+    @objc func test ()
+    {
+        print("test")
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -661,14 +647,13 @@ class ThirdCell : UICollectionViewCell
 
 class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    var numberOfCells = 0
     var newsStorys = [NewsStory]()
     
     lazy var collectionView : UICollectionView =
         {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-            layout.minimumLineSpacing = 15
+            layout.minimumLineSpacing = 30
             let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
             
             collectionView.delegate = self
@@ -676,20 +661,19 @@ class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
             
             collectionView.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
             
-            collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "news-cell")
+            collectionView.register(ProductCell.self, forCellWithReuseIdentifier: "product-cell")
             
             collectionView.showsHorizontalScrollIndicator = false
             
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
             return collectionView
     }()
     
-    let newsLabel : UILabel =
+    let upcomingRafflesLabel : UILabel =
     {
         let label = UILabel()
-        label.font = UIFont(name: "Helvetica", size: 25)
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.ultraLight)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "UPCOMING RAFFLES"
+        label.font = UIFont(name: "Helvetica", size: 28)
+        label.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.light)
         return label
     }()
     
@@ -697,7 +681,6 @@ class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     {
         super.init(frame: CGRect.zero)
         
-        numberOfCells = newsStorys.count
         setupCollectionView()
         setupNewsLabel()
     }
@@ -706,66 +689,26 @@ class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     {
         addSubview(collectionView)
         
-        collectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
-        collectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        collectionView.anchor(top: nil, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
         collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75).isActive = true
     }
     
     func setupNewsLabel ()
     {
-        addSubview(newsLabel)
+        addSubview(upcomingRafflesLabel)
         
-        newsLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
-        newsLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor).isActive = true
-        newsLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        newsLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
+        upcomingRafflesLabel.anchor(top: nil, bottom: collectionView.topAnchor, left: leftAnchor, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 15, paddingRight: 0, width: 0, height: 0)
+        upcomingRafflesLabel.widthAndHeightByPercentOfParent(widthPercent: 1.0, heightPercent: 0.15, parentWidthAnchor: widthAnchor, parentHeightAnchor: heightAnchor)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return numberOfCells
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "news-cell", for: indexPath) as! NewsCell
-        
-        cell.backgroundColor = UIColor.white
-        
-        if newsStorys.count != 0
-        {
-            if let title = newsStorys[indexPath.row].title
-            {
-                cell.newsTitleLabel.text = title
-            }
-            
-            
-            if let preview_text = newsStorys[indexPath.row].preview_text
-            {
-                cell.newsDescriptionLabel.text = preview_text
-            }
-            
-            if let photoUrl = newsStorys[indexPath.row].photo_url
-            {
-                if let url = URL(string:photoUrl)
-                {
-                    URLSession.shared.dataTask(with: url) { (data, response, error) in
-                        
-                        if let error = error
-                        {
-                            print("Error:\(error)")
-                        }
-                        
-                        DispatchQueue.main.async
-                            {
-                                cell.productImageView.image = UIImage(data: data!)
-                        }
-                        
-                        }.resume()
-                }
-            }
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product-cell", for: indexPath) as! ProductCell
         
         return cell
     }
