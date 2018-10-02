@@ -17,6 +17,7 @@
 		6525C3F9215C4F0A00FA301A /* To Do List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525C3F8215C4F0A00FA301A /* To Do List.swift */; };
 		6525C3FB215C4F5B00FA301A /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525C3FA215C4F5B00FA301A /* ProductViewController.swift */; };
 		6526B22D21488499002117A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6526B22C21488499002117A3 /* GoogleService-Info.plist */; };
+		652967F62162ED5900A42B97 /* SearchSupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652967F52162ED5900A42B97 /* SearchSupplementaryHeaderView.swift */; };
 		65323026215999B30021C28D /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65323025215999B30021C28D /* Update.swift */; };
 		653A06DB2149E0E900CF241C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A06DA2149E0E900CF241C /* Product.swift */; };
 		656A5E4F214B2AA400B4A06B /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A5E4E214B2AA400B4A06B /* NewsStory.swift */; };
@@ -26,8 +27,8 @@
 		659180E9214886BB007246E9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180DF214886B8007246E9 /* ProductCell.swift */; };
 		659180EA214886BB007246E9 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E0214886B9007246E9 /* BrandCell.swift */; };
 		659180EB214886BB007246E9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E1214886B9007246E9 /* ForgotPasswordViewController.swift */; };
-		659180EC214886BB007246E9 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E2214886B9007246E9 /* StoreViewController.swift */; };
-		659180ED214886BB007246E9 /* RafflesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E3214886B9007246E9 /* RafflesViewController.swift */; };
+		659180EC214886BB007246E9 /* StoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E2214886B9007246E9 /* StoreCollectionViewController.swift */; };
+		659180ED214886BB007246E9 /* RafflesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E3214886B9007246E9 /* RafflesCollectionViewController.swift */; };
 		659180EE214886BB007246E9 /* UpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E4214886BA007246E9 /* UpdatesViewController.swift */; };
 		659180EF214886BB007246E9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E5214886BA007246E9 /* AboutViewController.swift */; };
 		659180F1214886BB007246E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659180E7214886BA007246E9 /* HomeViewController.swift */; };
@@ -72,6 +73,7 @@
 		6525C3F8215C4F0A00FA301A /* To Do List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "To Do List.swift"; path = "Pre-Home Classes/To Do List.swift"; sourceTree = "<group>"; };
 		6525C3FA215C4F5B00FA301A /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		6526B22C21488499002117A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		652967F52162ED5900A42B97 /* SearchSupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSupplementaryHeaderView.swift; sourceTree = "<group>"; };
 		65323025215999B30021C28D /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		653A06DA2149E0E900CF241C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		656A5E4E214B2AA400B4A06B /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
@@ -81,8 +83,8 @@
 		659180DF214886B8007246E9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		659180E0214886B9007246E9 /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		659180E1214886B9007246E9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		659180E2214886B9007246E9 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
-		659180E3214886B9007246E9 /* RafflesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesViewController.swift; sourceTree = "<group>"; };
+		659180E2214886B9007246E9 /* StoreCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewController.swift; sourceTree = "<group>"; };
+		659180E3214886B9007246E9 /* RafflesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesCollectionViewController.swift; sourceTree = "<group>"; };
 		659180E4214886BA007246E9 /* UpdatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesViewController.swift; sourceTree = "<group>"; };
 		659180E5214886BA007246E9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		659180E7214886BA007246E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +206,8 @@
 				6525C3FF215C63B700FA301A /* Models */,
 				6525C3FD215C639100FA301A /* Collection View Cells */,
 				659180E7214886BA007246E9 /* HomeViewController.swift */,
-				659180E3214886B9007246E9 /* RafflesViewController.swift */,
-				659180E2214886B9007246E9 /* StoreViewController.swift */,
+				659180E3214886B9007246E9 /* RafflesCollectionViewController.swift */,
+				659180E2214886B9007246E9 /* StoreCollectionViewController.swift */,
 				659180E5214886BA007246E9 /* AboutViewController.swift */,
 			);
 			path = "Tab View Controllers";
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				659180E0214886B9007246E9 /* BrandCell.swift */,
+				652967F52162ED5900A42B97 /* SearchSupplementaryHeaderView.swift */,
 			);
 			path = "Collection View Cells";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652967F62162ED5900A42B97 /* SearchSupplementaryHeaderView.swift in Sources */,
 				65ABF24721489C440002AADB /* User.swift in Sources */,
 				659180F2214886BB007246E9 /* LoginViewController.swift in Sources */,
 				659180E9214886BB007246E9 /* ProductCell.swift in Sources */,
@@ -524,7 +528,7 @@
 				659180EB214886BB007246E9 /* ForgotPasswordViewController.swift in Sources */,
 				6592774221582143008A4FE7 /* ViewAnchors.swift in Sources */,
 				65846D2C21603352000E099F /* ProductImagesCollectionView.swift in Sources */,
-				659180EC214886BB007246E9 /* StoreViewController.swift in Sources */,
+				659180EC214886BB007246E9 /* StoreCollectionViewController.swift in Sources */,
 				6525C3F9215C4F0A00FA301A /* To Do List.swift in Sources */,
 				659180EF214886BB007246E9 /* AboutViewController.swift in Sources */,
 				659180EE214886BB007246E9 /* UpdatesViewController.swift in Sources */,
@@ -535,7 +539,7 @@
 				656A5E4F214B2AA400B4A06B /* NewsStory.swift in Sources */,
 				659180DA2148862A007246E9 /* ViewColors.swift in Sources */,
 				6525C3FB215C4F5B00FA301A /* ProductViewController.swift in Sources */,
-				659180ED214886BB007246E9 /* RafflesViewController.swift in Sources */,
+				659180ED214886BB007246E9 /* RafflesCollectionViewController.swift in Sources */,
 				653A06DB2149E0E900CF241C /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

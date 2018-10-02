@@ -311,17 +311,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let homeController = HomeViewController()
         let homeViewController = UINavigationController(rootViewController: homeController)
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, selectedImage: nil)
-                
         
+        let layout = UICollectionViewFlowLayout()
         
-        let rafflesController = RafflesViewController()
-        let rafflesViewController = UINavigationController(rootViewController: rafflesController)
+        let rafflesCollectionViewController = RafflesCollectionViewController(collectionViewLayout: layout)
+        let rafflesViewController = UINavigationController(rootViewController: rafflesCollectionViewController)
         rafflesViewController.tabBarItem = UITabBarItem(title: "Raffles", image: nil, selectedImage: nil)
         
         
-        let storeController = StoreViewController()
-        let storeViewController = UINavigationController(rootViewController: storeController)
+        let storeCollectionViewController = StoreCollectionViewController(collectionViewLayout: layout)
+        let storeViewController = UINavigationController(rootViewController: storeCollectionViewController)
         storeViewController.tabBarItem = UITabBarItem(title: "Store", image: nil, selectedImage: nil)
+        
+        
         
         let aboutController = AboutViewController()
         let aboutViewController = UINavigationController(rootViewController: aboutController)
@@ -330,7 +332,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         tabBarViewController.viewControllers = [homeViewController, rafflesViewController, storeViewController, aboutViewController]
-        
         
         present(tabBarViewController, animated: true, completion: nil)
     }

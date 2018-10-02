@@ -13,7 +13,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     var products = [Product]()
     var brands = [String]()
     var numberOfCells = 0
-    var storeViewController = StoreViewController()
+    var storeViewController = StoreCollectionViewController()
     
     let brandLabel : UILabel =
     {
@@ -44,6 +44,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         super.init(frame: CGRect.zero)
         setupCollectionView()
         setupBrandLabel()
+
     }
     
     func setupCollectionView ()
@@ -61,7 +62,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         addSubview(brandLabel)
         
         brandLabel.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 24).isActive = true
-        brandLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 40).isActive = true
+        brandLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
         brandLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         brandLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
     }
@@ -114,12 +115,12 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: collectionView.frame.width * 0.8, height: collectionView.frame.height * 0.60)
+        return CGSize(width: collectionView.frame.width * 0.8, height: collectionView.frame.height * 0.75)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        return UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
+        return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
     }
     
     required init?(coder aDecoder: NSCoder) {

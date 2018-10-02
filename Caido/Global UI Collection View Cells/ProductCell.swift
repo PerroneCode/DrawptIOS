@@ -11,7 +11,7 @@ import UIKit
 
 class ProductCell : UICollectionViewCell
 {
-    var storeViewController = StoreViewController()
+    var storeViewController = StoreCollectionViewController()
     
     let productNameLabel : UILabel =
     {
@@ -48,7 +48,7 @@ class ProductCell : UICollectionViewCell
     
     @objc func presentProductViewController ()
     {
-        storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!)
+      //  storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!)
     }
     
     
