@@ -12,7 +12,6 @@ import Firebase
 class HomeViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     var user : User?
-    var newsStorys = [NewsStory]()
     
     lazy var collectionView : UICollectionView =
     {
@@ -39,35 +38,6 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
         checkIfUserIsLoggedIn()
         setupNavigationItemButtons()
         setupCollectionView()
-        downloadNews()
-    }
-    
-    func downloadNews ()
-    {
-        Database.database().reference().child("news").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if let initialDictionary = snapshot.value as? [String : Any]
-            {
-                for (key, _) in initialDictionary
-                {
-                    if let finalDictionary = initialDictionary[key] as? [String : Any]
-                    {
-                        self.newsStorys.append(NewsStory(dictionary: finalDictionary))
-                    }
-                    
-                }
-            }
-            
-          self.refreshCollectionViewData()
-            
-        }) { (error) in
-            print("Error:\(error)")
-        }
-    }
-    
-    func refreshCollectionViewData ()
-    {
-        self.collectionView.reloadData()
     }
     
     func checkIfUserIsLoggedIn ()
@@ -130,18 +100,26 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
         } else if (indexPath.row == 1)
         {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "second", for: indexPath) as! SecondCell
-            
-            cell.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
-            
-            
-            cell.newsLabel.text = "CAIDO NEWS"
-            
-            if self.newsStorys.count != 0
-            {
-                cell.newsStorys = self.newsStorys
-                cell.collectionView.reloadData()
+            var newsStorys = [NewsStory]()
+            Database.database().reference().child("news").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let initialDictionary = snapshot.value as? [String : Any]
+                {
+                    for (key, _) in initialDictionary
+                    {
+                        if let finalDictionary = initialDictionary[key] as? [String : Any]
+                        {
+                            newsStorys.append(NewsStory(dictionary: finalDictionary))
+                        }
+                    }
+                    cell.newsStorys = newsStorys
+                    cell.collectionView.reloadData()
+                }
+            }) { (error) in
+                print("Error:\(error)")
             }
-            
+            cell.newsLabel.text = "CAIDO NEWS"
+            cell.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
             return cell
         } else if (indexPath.row == 2)
         {
@@ -153,9 +131,37 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
         } else
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fourth", for: indexPath) as! FourthCell
+            var upcomingRaffles = [Product]()
             
+            Database.database().reference().child("upcoming_raffles").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                // Extract all raffles
+                if let allProductsDictionary = snapshot.value as? [String : Any]
+                {
+                    // Extract the keys of each, which will be the product categories
+                    for (key, _) in allProductsDictionary
+                    {
+                        // Repeat again
+                        if let productCategoryDictionary = allProductsDictionary[key] as? [String : Any]
+                        {
+                            for (productUUIDKey, _) in productCategoryDictionary
+                            {
+                                if let productDictionary = productCategoryDictionary [productUUIDKey] as? [String : Any]
+                                {
+                                    upcomingRaffles.append(Product(dictionary: productDictionary))
+                                }
+                            }
+                        }
+                    }
+                    cell.upcomingRaffles = upcomingRaffles
+                    cell.collectionView.reloadData()
+                }
+            }) { (error) in
+                
+                print("Error:\(error)")
+                
+            }
             cell.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
-            
             return cell
         }
     }
@@ -472,7 +478,6 @@ class SecondCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
 
 class NewsCell : UICollectionViewCell
 {
-    
     let newsTitleLabel : UILabel =
     {
         let label = UILabel()
@@ -649,6 +654,8 @@ class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
 {
     var newsStorys = [NewsStory]()
     
+    var upcomingRaffles = [Product]()
+    
     lazy var collectionView : UICollectionView =
         {
             let layout = UICollectionViewFlowLayout()
@@ -703,12 +710,44 @@ class FourthCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return 5
+        return upcomingRaffles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product-cell", for: indexPath) as! ProductCell
+        
+        if upcomingRaffles.count != 0
+        {
+            if let product_name = upcomingRaffles[indexPath.row].product_name
+            {
+                cell.productNameLabel.text = product_name
+            }
+            
+            if let size = upcomingRaffles[indexPath.row].size
+            {
+                cell.descriptionLabel.text = "Size: \(size)"
+            }
+            
+            // Extract the image
+            let url = URL(string:upcomingRaffles[indexPath.row].photo_url!)
+            URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                
+                if let error = error
+                {
+                    print("Error: \(error)")
+                    return
+                }
+                
+                if let photoData = data
+                {
+                    DispatchQueue.main.async
+                    {
+                        cell.productImageView.image = UIImage(data: photoData)
+                    }
+                }
+            }.resume()
+        }
         
         return cell
     }

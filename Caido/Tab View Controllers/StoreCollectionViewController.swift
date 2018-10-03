@@ -67,7 +67,7 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
             }
             
             self.parseToProductCategory(keys: keys, initialDictionary: initialDictionary)
-            self.refreshCollectionView()
+            self.collectionView?.reloadData()
         }
         
         }) { (error) in
@@ -122,20 +122,6 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
                 }
             }
         }
-    }
-    
-    func refreshCollectionView ()
-    {
-        var indexPaths = [IndexPath]()
-        var i = 0
-        
-        while (i < brands.count)
-        {
-            let indexPath = IndexPath(row: i, section: 0)
-            indexPaths.append(indexPath)
-            i += 1
-        }
-        collectionView?.insertItems(at: indexPaths)
     }
     
     

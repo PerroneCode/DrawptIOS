@@ -19,8 +19,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica", size: 25)
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.ultraLight)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.heavy)
         return label
     }()
     
@@ -35,7 +34,6 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
             return collectionView
     }()
     
@@ -51,20 +49,15 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         addSubview(collectionView)
         
-        collectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        collectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        collectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        collectionView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        collectionView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
     }
     
     func setupBrandLabel ()
     {
         addSubview(brandLabel)
         
-        brandLabel.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 24).isActive = true
-        brandLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
-        brandLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        brandLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
+        brandLabel.anchor(top: collectionView.topAnchor, bottom: nil, left: collectionView.leftAnchor, right: nil, paddingTop: 10, paddingBottom: 0, paddingLeft: 24, paddingRight: 0, width: 0, height: 0)
+        brandLabel.widthAndHeightByPercentOfParent(widthPercent: 1.0, heightPercent: 0.05, parentWidthAnchor: widthAnchor, parentHeightAnchor: heightAnchor)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -99,11 +92,13 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
                         print("Error:\(error)")
                         return
                     }
-                    DispatchQueue.main.async
+                    if let photoData = data
                     {
-                        cell.productImageView.image = UIImage(data: data!)
+                        DispatchQueue.main.async
+                        {
+                            cell.productImageView.image = UIImage(data: photoData)
+                        }
                     }
-                
                 }.resume()
             }
         }

@@ -60,9 +60,9 @@ class ProductCell : UICollectionViewCell
         backgroundColor = UIColor.white
         
         setupShadow()
+        setupProductImageView()
         setupProductNameLabel()
         setupDescriptionLabel()
-        setupProductImageView()
     }
     
     func setupShadow()
@@ -73,36 +73,27 @@ class ProductCell : UICollectionViewCell
         layer.shadowOffset = CGSize(width: 10, height: 10)
     }
     
+    func setupProductImageView ()
+    {
+        addSubview(productImageView)
+        
+        productImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 40, paddingBottom: 40, paddingLeft: 20, paddingRight: 20, width: 0, height: 0)
+    }
+    
     func setupProductNameLabel ()
     {
         addSubview(productNameLabel)
         
-        productNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        productNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        productNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95).isActive = true
-        productNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+        productNameLabel.anchor(top: topAnchor, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 5, paddingRight: 5, width: 0, height: 60)
     }
     
     func setupDescriptionLabel ()
     {
         addSubview(descriptionLabel)
         
-        descriptionLabel.leftAnchor.constraint(equalTo: productNameLabel.leftAnchor).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+        descriptionLabel.anchor(top: nil, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 5, paddingRight: 5, width: 0, height: 35)
     }
-    
-    func setupProductImageView ()
-    {
-        addSubview(productImageView)
-        
-        productImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        productImageView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        productImageView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor).isActive = true
-        productImageView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor).isActive = true
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
