@@ -13,7 +13,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     var products = [Product]()
     var brands = [String]()
     var numberOfCells = 0
-    var storeViewController = StoreCollectionViewController()
+    var storeViewController = BrandsAndProductsCollectionViewController()
     
     let brandLabel : UILabel =
     {

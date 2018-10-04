@@ -314,14 +314,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let layout = UICollectionViewFlowLayout()
         
-        let rafflesCollectionViewController = RafflesCollectionViewController(collectionViewLayout: layout)
+        let rafflesCollectionViewController = BrandsAndProductsCollectionViewController(collectionViewLayout: layout)
         let rafflesViewController = UINavigationController(rootViewController: rafflesCollectionViewController)
         rafflesViewController.tabBarItem = UITabBarItem(title: "Raffles", image: nil, selectedImage: nil)
+        rafflesCollectionViewController.type = typeOfCollectionViewController.Raffle
         
         
-        let storeCollectionViewController = StoreCollectionViewController(collectionViewLayout: layout)
+        let storeCollectionViewController = BrandsAndProductsCollectionViewController(collectionViewLayout: layout)
         let storeViewController = UINavigationController(rootViewController: storeCollectionViewController)
         storeViewController.tabBarItem = UITabBarItem(title: "Store", image: nil, selectedImage: nil)
+        storeCollectionViewController.type = typeOfCollectionViewController.Store
+
         
         
         

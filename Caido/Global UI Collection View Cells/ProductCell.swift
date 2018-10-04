@@ -11,7 +11,7 @@ import UIKit
 
 class ProductCell : UICollectionViewCell
 {
-    var storeViewController = StoreCollectionViewController()
+    var storeViewController = BrandsAndProductsCollectionViewController()
     
     let productNameLabel : UILabel =
     {

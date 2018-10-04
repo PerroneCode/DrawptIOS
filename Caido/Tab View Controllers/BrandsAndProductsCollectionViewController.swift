@@ -9,9 +9,15 @@
 import UIKit
 import Firebase
 
-class StoreCollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout
+enum typeOfCollectionViewController
 {
+    case Raffle
+    case Store
+}
 
+class BrandsAndProductsCollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout
+{
+    var type : typeOfCollectionViewController?
     var products = [String:[Product]]()
     var brands = [String]()
     
@@ -21,7 +27,7 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
         collectionView?.register(BrandCell.self, forCellWithReuseIdentifier: "brand-cell")
         collectionView?.register(SearchSupplementaryHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "search-header")
         collectionView?.backgroundColor = UIColor(red: 245, green: 245, blue: 245)
-
+        
         view.backgroundColor = .white
         
         setupNavigationItemButtons()
@@ -30,8 +36,13 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
     
     func setupNavigationItemButtons()
     {
-        navigationItem.title = "Store"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signUserOut))
+        
+        switch (type!)
+        {
+            case .Raffle: navigationItem.title = "Raffle"
+            case .Store: navigationItem.title = "Store"
+        }
     }
     
     @objc func signUserOut ()
@@ -54,22 +65,28 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
     
     func getProductsFromDatabase()
     {
-        Database.database().reference().child("available_products").observeSingleEvent(of: .value, with: { (snapshot) in
-        
-        // First, get the dictionary
-        if let initialDictionary = snapshot.value as? [String : Any]
+        var childReference = ""
+        switch (type!)
         {
-            // Extract all the category keys
-            var keys = Set<String>()
-            for (key, _) in initialDictionary
+            case .Raffle: childReference = "raffles"
+            case .Store: childReference = "available_products"
+        }
+        Database.database().reference().child(childReference).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // First, get the dictionary
+            if let initialDictionary = snapshot.value as? [String : Any]
             {
-                keys.insert(key)
+                // Extract all the category keys
+                var keys = Set<String>()
+                for (key, _) in initialDictionary
+                {
+                    keys.insert(key)
+                }
+                
+                self.parseToProductCategory(keys: keys, initialDictionary: initialDictionary)
+                self.collectionView?.reloadData()
             }
             
-            self.parseToProductCategory(keys: keys, initialDictionary: initialDictionary)
-            self.collectionView?.reloadData()
-        }
-        
         }) { (error) in
             
             print("Error:\(error)")
@@ -133,8 +150,8 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brand-cell", for: indexPath) as! BrandCell
-                
-        cell.storeViewController = self
+        
+        //  cell.storeViewController = self
         
         if brands.count != 0
         {
@@ -149,7 +166,7 @@ class StoreCollectionViewController : UICollectionViewController, UICollectionVi
         return cell
     }
     
-   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
     {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "search-header", for: indexPath) as! SearchSupplementaryHeaderView
         
