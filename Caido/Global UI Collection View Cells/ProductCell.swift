@@ -49,6 +49,7 @@ class ProductCell : UICollectionViewCell
     @objc func presentProductViewController ()
     {
       //  storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!)
+        
     }
     
     

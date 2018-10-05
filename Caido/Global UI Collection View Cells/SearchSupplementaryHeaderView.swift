@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
-class SearchSupplementaryHeaderView : UICollectionViewCell
+class SearchSupplementaryHeaderView : UICollectionViewCell, UITextFieldDelegate
 {
-    let searchTextField : UITextField =
+    lazy var searchTextField : UITextField =
     {
         let textField = UITextField()
         textField.placeholder = "🔍 Search"
@@ -23,6 +24,9 @@ class SearchSupplementaryHeaderView : UICollectionViewCell
         textField.leftView = leftView
         textField.leftViewMode = .always
         
+        textField.delegate = self
+        textField.addTarget(self, action: #selector(searchDatabase), for: .editingChanged)
+        
         let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.rightView = rightView
         textField.rightViewMode = .always
@@ -30,6 +34,21 @@ class SearchSupplementaryHeaderView : UICollectionViewCell
         
         return textField
     }()
+    
+    @objc func searchDatabase ()
+    {
+        let query = Database.database().reference().child("available_products").child("shoes").queryOrdered(byChild: "brand").queryEqual(toValue: searchTextField.text!)
+        
+        query.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            print(snapshot.value)
+            
+        }) { (error) in
+            
+            print("Error: \(error)")
+            
+        }
+    }
     
     override init (frame: CGRect)
     {

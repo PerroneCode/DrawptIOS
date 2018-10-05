@@ -42,7 +42,7 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         super.init(frame: CGRect.zero)
         setupCollectionView()
         setupBrandLabel()
-
+        collectionView.collectionViewLayout.invalidateLayout() // Research why this works, need to understand
     }
     
     func setupCollectionView ()

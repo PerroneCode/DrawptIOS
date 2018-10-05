@@ -202,21 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				6525C3FF215C63B700FA301A /* Models */,
-				6525C3FD215C639100FA301A /* Collection View Cells */,
 				659180E7214886BA007246E9 /* HomeViewController.swift */,
 				659180E3214886B9007246E9 /* BrandsAndProductsCollectionViewController.swift */,
 				659180E5214886BA007246E9 /* AboutViewController.swift */,
 			);
 			path = "Tab View Controllers";
-			sourceTree = "<group>";
-		};
-		6525C3FD215C639100FA301A /* Collection View Cells */ = {
-			isa = PBXGroup;
-			children = (
-				659180E0214886B9007246E9 /* BrandCell.swift */,
-				652967F52162ED5900A42B97 /* SearchSupplementaryHeaderView.swift */,
-			);
-			path = "Collection View Cells";
 			sourceTree = "<group>";
 		};
 		6525C3FF215C63B700FA301A /* Models */ = {
@@ -287,6 +277,8 @@
 		65FC863A21618BDC00186AA7 /* Global UI Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				659180E0214886B9007246E9 /* BrandCell.swift */,
+				652967F52162ED5900A42B97 /* SearchSupplementaryHeaderView.swift */,
 				659180DF214886B8007246E9 /* ProductCell.swift */,
 			);
 			path = "Global UI Collection View Cells";
