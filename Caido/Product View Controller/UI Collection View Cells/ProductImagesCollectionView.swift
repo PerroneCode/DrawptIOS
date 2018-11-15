@@ -14,7 +14,7 @@ class ProductImagesCollectionCell : UICollectionViewCell
     let productImageView : UIImageView =
     {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -29,7 +29,7 @@ class ProductImagesCollectionCell : UICollectionViewCell
     {
         addSubview(productImageView)
         
-        productImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+        productImageView.anchor(top: topAnchor, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 150)
     }
     
     required init?(coder aDecoder: NSCoder) {

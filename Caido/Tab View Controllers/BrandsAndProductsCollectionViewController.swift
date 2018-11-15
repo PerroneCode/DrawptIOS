@@ -151,7 +151,7 @@ class BrandsAndProductsCollectionViewController : UICollectionViewController, UI
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brand-cell", for: indexPath) as! BrandCell
         
-        //  cell.storeViewController = self
+          cell.storeViewController = self
         
         if brands.count != 0
         {
@@ -178,13 +178,14 @@ class BrandsAndProductsCollectionViewController : UICollectionViewController, UI
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height * 0.1)
     }
     
-    func presentProductViewController (name: String, size: String, photo: UIImage)
+    func presentProductViewController (name: String, size: String, photo: UIImage, price: String)
     {
         let productViewController = ProductViewController()
         
         productViewController.name = name
         productViewController.size = size
         productViewController.photo = photo
+        productViewController.price = price
         
         navigationController?.pushViewController(productViewController, animated: true)
     }

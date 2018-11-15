@@ -19,18 +19,18 @@ class ProductCell : UICollectionViewCell
         label.text = ""
         label.font = label.font.withSize(20)
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let descriptionLabel : UILabel =
     {
         let label = UILabel()
+        
         label.numberOfLines = 0
         label.font = UIFont(name: "Helvetica", size: 15)
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.light)
         label.textColor = UIColor(red: 155, green: 155, blue: 155)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
@@ -38,7 +38,6 @@ class ProductCell : UICollectionViewCell
     {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentProductViewController)))
@@ -46,11 +45,24 @@ class ProductCell : UICollectionViewCell
         return imageView
     }()
     
+    let priceLabel : UILabel =
+    {
+        let label = UILabel()
+        
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Helvetica", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.light)
+        label.textColor = UIColor(red: 155, green: 155, blue: 155)
+        label.textAlignment = .right
+        
+        return label
+    }()
+    
     @objc func presentProductViewController ()
     {
-      //  storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!)
-        
+        storeViewController.presentProductViewController(name: productNameLabel.text!, size: descriptionLabel.text!, photo: productImageView.image!, price: priceLabel.text!)
     }
+    
     
     
     override init(frame: CGRect)
@@ -64,6 +76,7 @@ class ProductCell : UICollectionViewCell
         setupProductImageView()
         setupProductNameLabel()
         setupDescriptionLabel()
+        setupPriceLabel()
     }
     
     func setupShadow()
@@ -92,7 +105,14 @@ class ProductCell : UICollectionViewCell
     {
         addSubview(descriptionLabel)
         
-        descriptionLabel.anchor(top: nil, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 5, paddingRight: 5, width: 0, height: 35)
+        descriptionLabel.anchor(top: nil, bottom: bottomAnchor, left: leftAnchor, right: centerXAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 5, paddingRight: 5, width: 0, height: 35)
+    }
+    
+    func setupPriceLabel ()
+    {
+        addSubview(priceLabel)
+        
+        priceLabel.anchor(top: nil, bottom: bottomAnchor, left: centerXAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 5, paddingRight: 5, width: 0, height: 35)
     }
 
     required init?(coder aDecoder: NSCoder) {

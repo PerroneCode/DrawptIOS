@@ -14,6 +14,7 @@ struct Product
     var product_name : String?
     var photo_url : String?
     var size : String?
+    var price : String?
     
     init (dictionary : [String : Any])
     {
@@ -35,6 +36,11 @@ struct Product
         if let size = dictionary["size"] as? String
         {
             self.size = size
+        }
+        
+        if let price = dictionary["price"] as? String
+        {
+            self.price = price
         }
         
     }

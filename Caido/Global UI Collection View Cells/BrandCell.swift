@@ -42,7 +42,6 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         super.init(frame: CGRect.zero)
         setupCollectionView()
         setupBrandLabel()
-        collectionView.collectionViewLayout.invalidateLayout() // Research why this works, need to understand
     }
     
     func setupCollectionView ()
@@ -78,6 +77,11 @@ class BrandCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         if let size = products[indexPath.row].size
         {
             cell.descriptionLabel.text = "Size: \(size)"
+        }
+        
+        if let price = products[indexPath.row].price
+        {
+            cell.priceLabel.text = "$\(price)"
         }
         
         if let photo_url = products[indexPath.row].photo_url

@@ -46,7 +46,6 @@ class SearchSupplementaryHeaderView : UICollectionViewCell, UITextFieldDelegate
         }) { (error) in
             
             print("Error: \(error)")
-            
         }
     }
     
@@ -65,6 +64,12 @@ class SearchSupplementaryHeaderView : UICollectionViewCell, UITextFieldDelegate
         
         searchTextField.anchor(top: nil, bottom: nil, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 10, paddingRight: 10, width: 0, height: 35)
         searchTextField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true;
     }
     
     
