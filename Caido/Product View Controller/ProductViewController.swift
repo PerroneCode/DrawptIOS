@@ -17,175 +17,58 @@ class ProductViewController : UIViewController, UICollectionViewDelegate, UIColl
     var photo = UIImage()
     var price = String()
     
-    lazy var productImagesCollectionView : UICollectionView =
+    lazy var productPhotosCollectionView : UICollectionView =
     {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        layout.minimumLineSpacing = 15
         
-        collectionView.register(ProductImagesCollectionCell.self, forCellWithReuseIdentifier: "product-images-collection-view")
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = UIColor.white
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "photo-cell")
         
         return collectionView
     }()
     
-    lazy var productNameLabel : UILabel =
-    {
-        let label = UILabel()
-        
-        let attributedText = NSMutableAttributedString(string: self.name + " ▼", attributes: [NSAttributedStringKey.foregroundColor : UIColor(red: 53, green: 65, blue: 83), kCTFontAttributeName as NSAttributedStringKey : UIFont(name: "Helvetica", size: 20)!])
-        label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
-        
-        return label
-    }()
-    
-    lazy var priceLabel : UILabel =
-    {
-        let label = UILabel()
-        
-        let attributedText = NSMutableAttributedString(string: self.price, attributes: [NSAttributedStringKey.foregroundColor : UIColor(red: 53, green: 65, blue: 83), kCTFontAttributeName as NSAttributedStringKey : UIFont(name: "Helvetica", size: 25)!])
-        label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
-        
-        return label
-    }()
-    
-    lazy var availableColorView : UIView =
-    {
-        let view = UIView()
-        
-        view.backgroundColor = UIColor.red
-        view.layer.cornerRadius = 17.5
-        view.layer.borderColor = UIColor.black.cgColor
-        view.layer.borderWidth = 1.0
-        
-        return view
-    }()
-    
-    var sizeComboBox : UIView =
-    {
-        let view = UIView()
-        
-        view.backgroundColor = UIColor.white
-        view.layer.borderColor = UIColor.black.cgColor
-        view.layer.borderWidth = 2.0
-        
-        let sizeTextLabel : UILabel =
-        {
-            let label = UILabel()
-            label.text = "Size"
-            return label
-        }()
-        
-        let triangleLabel : UILabel =
-        {
-            let label = UILabel()
-            label.text = "▼"
-            label.textAlignment = .right
-            return label
-        }()
-        
-        view.addSubview(sizeTextLabel)
-        
-        sizeTextLabel.anchor(top: view.topAnchor, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 2, paddingBottom: 2, paddingLeft: 10, paddingRight: 50, width: 0, height: 0)
-        
-        view.addSubview(triangleLabel)
-        
-        triangleLabel.anchor(top: view.topAnchor, bottom: view.bottomAnchor, left: sizeTextLabel.rightAnchor, right: view.rightAnchor, paddingTop: 2, paddingBottom: 2, paddingLeft: 10, paddingRight: 10, width: 0, height: 0)
-
-        return view
-    }()
-    
-    let purchaseRaffleTicketButton : UIButton =
-    {
-        let button = UIButton(type: .system)
-        button.setTitle("Purchase Raffle Ticket", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
-        button.backgroundColor = UIColor.red
-        button.layer.cornerRadius = 20
-        return button
-    }()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.white
         
-        setupNavigationItem()
-        setupProductImagesCollectionView()
-        setupProductNameLabel()
-        setupPriceLabel()
-        setupAvailableColorView()
-        setupSizeComboBox()
-        setupPurchaseRaffleTicketButton()
-     //   setupProductTabs()
+        setupNavigationItemButtons()
+        setupProductPhotosCollectionView ()
     }
     
-    func setupNavigationItem ()
+    func setupNavigationItemButtons ()
     {
-        navigationItem.title = "Product"
+        navigationItem.title = name
     }
     
-    func setupProductImagesCollectionView ()
+    func setupProductPhotosCollectionView ()
     {
-        view.addSubview(productImagesCollectionView)
+        view.addSubview(productPhotosCollectionView)
         
-        productImagesCollectionView.anchor(top: view.topAnchor, bottom: view.centerYAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+        if let navController = navigationController
+        {
+            productPhotosCollectionView.anchor(top: view.topAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: navController.navigationBar.frame.height, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 250)
+        }
     }
     
-    func setupProductNameLabel ()
-    {
-        view.addSubview(productNameLabel)
-        
-        productNameLabel.anchor(top: productImagesCollectionView.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingBottom: 0, paddingLeft: 15, paddingRight: 15, width: 0, height: 30)
-    }
+    // productPhotosCollectionView delegate methods
     
-    func setupPriceLabel ()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        view.addSubview(priceLabel)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo-cell", for: indexPath) as! PhotoCell
         
-        priceLabel.anchor(top: productNameLabel.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 20)
-    }
-    
-    func setupAvailableColorView ()
-    {
-        let seperatorView = UIView()
+        cell.productPhotoImageView.image = photo
         
-        view.addSubview(seperatorView)
-        
-        seperatorView.backgroundColor = UIColor.black
-        seperatorView.anchor(top: priceLabel.bottomAnchor, bottom: nil, left: nil, right: nil, paddingTop: 15, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 35, height: 1)
-        seperatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        
-        view.addSubview(availableColorView)
-        
-        availableColorView.anchor(top: seperatorView.bottomAnchor, bottom: nil, left: nil, right: nil, paddingTop: 15, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 35, height: 35)
-        availableColorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-    }
-    
-    func setupSizeComboBox ()
-    {
-        view.addSubview(sizeComboBox)
-        
-        sizeComboBox.anchor(top: availableColorView.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15, paddingBottom: 0, paddingLeft: 75, paddingRight: 75, width: 0, height: 35)
-    }
-    
-    func setupPurchaseRaffleTicketButton ()
-    {
-        view.addSubview(purchaseRaffleTicketButton)
-        
-        purchaseRaffleTicketButton.anchor(top: sizeComboBox.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 25, paddingBottom: 0, paddingLeft: 55, paddingRight: 55, width: 0, height: 45)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -193,17 +76,56 @@ class ProductViewController : UIViewController, UICollectionViewDelegate, UIColl
         return 5
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product-images-collection-view", for: indexPath) as! ProductImagesCollectionCell
-        
-        cell.productImageView.image = photo
-        
-        return cell
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        return CGSize(width: UIScreen.main.bounds.width * 0.7, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.frame.width * 0.50, height: collectionView.frame.height * 0.75)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+}
+
+
+class PhotoCell : UICollectionViewCell
+{
+    
+    let productPhotoImageView : UIImageView =
+    {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    override init (frame : CGRect)
+    {
+        super.init(frame : frame)
+        
+        setupCellCustomizations()
+        setupProductPhotoImageView()
+    }
+    
+    func setupCellCustomizations ()
+    {
+        backgroundColor = UIColor.white
+        layer.cornerRadius = 10
+        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 10, height: 10)
+    }
+    
+    func setupProductPhotoImageView ()
+    {
+        addSubview(productPhotoImageView)
+        
+        productPhotoImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }

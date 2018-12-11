@@ -17,6 +17,9 @@ enum typeOfCollectionViewController
 
 class BrandsAndProductsCollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout
 {
+    
+    var user : User?
+
     var type : typeOfCollectionViewController?
     var products = [String:[Product]]()
     var brands = [String]()
@@ -34,6 +37,7 @@ class BrandsAndProductsCollectionViewController : UICollectionViewController, UI
         getProductsFromDatabase()
     }
     
+    
     func setupNavigationItemButtons()
     {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signUserOut))
@@ -47,19 +51,9 @@ class BrandsAndProductsCollectionViewController : UICollectionViewController, UI
     
     @objc func signUserOut ()
     {
-        do {
-            try Auth.auth().signOut()
-            print("Successfully signed user out")
-            
-            if let user = Auth.auth().currentUser
-            {
-                removeSessionTracker(uid: user.uid)
-            }
-            
-            dismiss(animated: true, completion: nil)
-        } catch let error as NSError
+        if (signOut(user: self.user!))
         {
-            print("Error:\(error)")
+            dismiss(animated: true, completion: nil)
         }
     }
     

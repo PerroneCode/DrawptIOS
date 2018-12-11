@@ -11,6 +11,7 @@ import Firebase
 
 class HomeViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    
     var user : User?
     
     lazy var collectionView : UICollectionView =
@@ -35,25 +36,59 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        checkIfUserIsLoggedIn()
+        checkIfLoggedIn()
         setupNavigationItemButtons()
         setupCollectionView()
     }
     
-    func checkIfUserIsLoggedIn ()
+    func checkIfLoggedIn ()
     {
-        if Auth.auth().currentUser == nil
+        let result : (User?, Bool) = checkIfUserIsLoggedIn()
+        
+        if (result.1 == false) // If the user is not logged in, then dismiss
         {
             dismiss(animated: true, completion: nil)
         } else
         {
-            // Setup user
-            if let user = Auth.auth().currentUser
+            if let user = result.0
             {
-                if let email = Auth.auth().currentUser?.email
+                self.user = user
+                
+                // Link the reference of the user to the other UIViewControllers
+                if let navigationControllerReference = navigationController
                 {
-                    self.user = User(email: email, uid: user.uid)
+                    if let tabBarControllerReference = navigationControllerReference.tabBarController
+                    {
+                        if let tabs = tabBarControllerReference.viewControllers
+                        {
+                            if let tab2 = tabs[1] as? UINavigationController
+                            {
+                                if let rafflesTab = tab2.topViewController as? BrandsAndProductsCollectionViewController
+                                {
+                                    rafflesTab.user = user
+                                }
+                            }
+                            
+                            if let tab3 = tabs[2] as? UINavigationController
+                            {
+                                if let storeTab = tab3.topViewController as? BrandsAndProductsCollectionViewController
+                                {
+                                    storeTab.user = user
+                                }
+                            }
+                            
+                            if let tab4 = tabs[3] as? UINavigationController
+                            {
+                                if let aboutTab = tab4.topViewController as? AboutViewController
+                                {
+                                    aboutTab.user = user
+                                }
+                            }
+                            
+                        }
+                    }
                 }
+                setupSessionTracker(email: user.email!, uid: user.uid!)
             }
         }
     }
@@ -66,16 +101,10 @@ class HomeViewController : UIViewController, UICollectionViewDelegate, UICollect
     
     @objc func signUserOut ()
     {
-        do {
-            try Auth.auth().signOut()
-            print("Successfully signed user out")
-            removeSessionTracker(uid: user?.uid)
-            dismiss(animated: true, completion: nil)
-        } catch let error as NSError
+        if (signOut(user: self.user!))
         {
-            print("Error:\(error)")
+            dismiss(animated: true, completion: nil)
         }
-
     }
 
     func setupCollectionView ()

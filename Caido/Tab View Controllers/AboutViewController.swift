@@ -10,6 +10,9 @@ import UIKit
 
 class AboutViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    
+    var user : User?
+
     lazy var collectionView : UICollectionView =
     {
         let layout = UICollectionViewFlowLayout()
@@ -28,10 +31,25 @@ class AboutViewController : UIViewController, UICollectionViewDelegate, UICollec
         return collectionView
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
+        setupNavigationItemButtons()
+    }
+    
+    func setupNavigationItemButtons ()
+    {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signUserOut))
+    }
+    
+    @objc func signUserOut ()
+    {
+        if (signOut(user: self.user!))
+        {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func setupCollectionView ()
